@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+
 public class CapsulaCafe {
 
     @Id
@@ -15,11 +16,9 @@ public class CapsulaCafe {
     private String sabor;
     private int doses;
 
-    public CapsulaCafe(String marca, String sabor, int doses) {
-        this.marca = marca;
-        this.sabor = sabor;
-        this.doses = doses;
+    public CapsulaCafe() {
     }
+
 
     public String getMarca() {
         return marca;

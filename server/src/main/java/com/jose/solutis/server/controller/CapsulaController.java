@@ -9,9 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import javax.servlet.Servlet;
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("")
@@ -20,10 +20,14 @@ public class CapsulaController {
     @Autowired
     private CapsulaRepository repository;
 
-
     @GetMapping("/capsulas")
     public List<CapsulaCafe> allCapsula(){
         return repository.findAll();
+    }
+
+    @GetMapping("/capsulas/{id}")
+    public Optional<CapsulaCafe> getCapsulaById(@PathVariable long id){
+        return repository.findById(id);
     }
 
     @DeleteMapping("/capsulas/{id}")
@@ -37,6 +41,20 @@ public class CapsulaController {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(novaCapsula.getId()).toUri();
 
         return ResponseEntity.created(location).build();
+    }
+    @PutMapping("/capsulas/{id}")
+    public ResponseEntity<Object> updateStudent(@RequestBody CapsulaCafe capsulaCafe, @PathVariable long id) {
+
+        Optional<CapsulaCafe> studentOptional = repository.findById(id);
+
+        if (!studentOptional.isPresent())
+            return ResponseEntity.notFound().build();
+
+        capsulaCafe.setId(id);
+
+        repository.save(capsulaCafe);
+
+        return ResponseEntity.noContent().build();
     }
 
 }
