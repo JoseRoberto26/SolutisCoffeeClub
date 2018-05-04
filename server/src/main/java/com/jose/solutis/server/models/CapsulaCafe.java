@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 
@@ -11,10 +13,11 @@ public class CapsulaCafe {
 
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
-    private long id;
+    private Long id;
+    @NotBlank(message = "Não pode ser nulo")
     private String marca;
     private String sabor;
-    private int doses;
+    private Integer doses;
 
     public CapsulaCafe() {
     }
@@ -36,19 +39,19 @@ public class CapsulaCafe {
         this.sabor = sabor;
     }
 
-    public int getDoses() {
+    public Integer getDoses() {
         return doses;
     }
 
-    public void setDoses(int doses) {
+    public void setDoses(Integer doses) {
         this.doses = doses;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }
