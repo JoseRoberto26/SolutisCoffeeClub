@@ -1,4 +1,7 @@
+import { CrudService } from './shared-service/crud.service';
 import { BrowserModule } from '@angular/platform-browser';
+import {RouterModule, Routes} from '@angular/router';
+import {HttpModule} from '@angular/http'; 
 import { NgModule, OnInit } from '@angular/core';
 import *as $ from 'jquery';
 import {Sine, Quad, TimelineMax, TweenMax} from "gsap";
@@ -12,7 +15,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

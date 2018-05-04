@@ -1,8 +1,8 @@
 <ul class="navbar" id="navbar">
     <li class="active"><a href="#">Home</a></li>
-    <li><a href="#">Lista de cafés</a></li>
-    <li><a href="#">Criar/Editar café</a></li>
-    <li><a href="#">Inscreva-se</a></li>
+    <li><a href="#divLista">Lista de cafés</a></li>
+    <li><a href="#divReg">Registrar Café</a></li>
+    <li><a href="#formInsc">Inscreva-se</a></li>
 </ul>
 
 <section id="Home"></section>
@@ -44,22 +44,65 @@
     </div>
 </div>
 
-<div class="asdas">
-    <div class="col-xs-12 col-md-8 inner">
-        <div class="nav justify-content-center m-auto">
-            <h1 class="masthead-brand text-center"> Lista de Cafés</h1>
+<div id="divLista">
+    <h1>Lista de Cafés</h1>
+    <div class="center-on-page">
+        <div class="select">
+            <select name="slct" id="slct">
+                <option>Choose an option</option>
+                <option value="1">Nescafe - Cappuccino</option>
+                <option value="2">Tres - Expresso</option>
+              </select>
         </div>
     </div>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
 </div>
 
-<form>
+<div id="divReg">
+    <h1>Registrar café</h1>
+    <form id="formReg">
+        <div class="form-group" id="item">
+            <label for="regInputMarca">Marca do Café</label>
+            <input type="text" class="form-control" id="inputRegMarca" placeholder="Digite a marca">
+        </div>
+        <div class="form-group" id="item">
+            <label for="regInputSabor">Sabor</label>
+            <input type="text" class="form-control" id="inputRegSabor" placeholder="Digite o sabor">
+        </div>
+        <div class="form-group" id="item">
+            <label for="regInputDoses">Doses</label>
+            <input type="number" class="form-control" id="exampleInputSabor" placeholder="Quantidade de doses">
+        </div>
+        <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+</div>
+
+<form id="formInsc" Aname="Inscricao">
+    <h1 id="formH1">Inscreva-se!</h1>
     <h5>Quer receber informações sobre o seu sabor preferido? É fácil! Preencha o formulário abaixo.</h5>
-    <div class="form-group">
+    <div class="form-group" id="item">
         <label for="exampleInputEmail1">Endereço de Email</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu Email">
-        <small id="emailHelp" class="form-text text-muted">Não se preocupe! Seu email não será compartilhado com ninguém.</small>
+        <small id="emailHelp" class="form-text text-muted">(Não se preocupe! Seu email não será compartilhado com ninguém.)</small>
     </div>
-    <div class="form-group">
+    <div class="form-group" id="item">
         <label for="exampleInputSabor">Sabor</label>
         <input type="text" class="form-control" id="exampleInputSabor" placeholder="Digite o sabor">
     </div>
