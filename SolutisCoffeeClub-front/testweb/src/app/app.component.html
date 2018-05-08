@@ -1,8 +1,8 @@
 <ul class="navbar" id="navbar">
     <li class="active"><a href="#">Home</a></li>
-    <li><a href="#divLista">Lista de cafés</a></li>
-    <li><a href="#divReg">Registrar Café</a></li>
-    <li><a href="#formInsc">Inscreva-se</a></li>
+    <li><a href="#Lista">Lista de cafés</a></li>
+    <li><a href="#Registrar">Registrar Café</a></li>
+    <li><a href="#Inscrever">Inscreva-se</a></li>
 </ul>
 
 <section id="Home"></section>
@@ -44,47 +44,56 @@
     </div>
 </div>
 
-<div id="divLista">
-    <h1>Lista de Cafés</h1>
-    <div class="center-on-page">
-        <div class="select">
-            <select name="slct" id="slct">
-                <option>Choose an option</option>
-                <option value="1">Nescafe - Cappuccino</option>
-                <option value="2">Tres - Expresso</option>
-              </select>
+<div id="Lista">
+    <div class="container" id="myTable">
+        <div class="row">
+            <table class="table table-hover table-dark" align="center">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Sabor</th>
+                        <th scope="col">Doses</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let capsula of capsulas; let i = index">
+                        <td>{{i}}</td>
+                        <td>{{capsula.marca}}</td>
+                        <td>{{capsula.sabor}}</td>
+                        <td>{{capsula.doses}}</td>
+                        <td class="field-edit table-cart__td">
+                            <a href="#" class="c-btn--edit c-btn">Editar</a>
+                        </td>
+                        <td class="field-remove table-cart__td">
+                            <a href="#" (click)="deleteCapsula([(capsula)])" class="c-btn--remove c-btn">Apagar</a>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
     </div>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
-    <br><br>
 </div>
 
-<div id="divReg">
+
+
+<div id="Registrar">
     <h1>Registrar café</h1>
-    <form id="formReg">
+    <button (click)="createOrEdit()" type="button" class="btn btn-primary">Nova capsula</button>
+    <form [hidden]="!showCreation" #regForm="ngForm" id="formReg" ngmodel="capsula" name="formRegis">
         <div class="form-group" id="item">
             <label for="regInputMarca">Marca do Café</label>
-            <input type="text" class="form-control" id="inputRegMarca" placeholder="Digite a marca">
+            <input type="text" [(ngModel)]="capsula.marca" name="marca" class="form-control" id="inputRegMarca" placeholder="Digite a marca do café" required>
         </div>
         <div class="form-group" id="item">
             <label for="regInputSabor">Sabor</label>
-            <input type="text" class="form-control" id="inputRegSabor" placeholder="Digite o sabor">
+            <input type="text" [(ngModel)]="capsula.sabor" name="sabor" class="form-control" id="inputRegSabor" placeholder="Digite o sabor do café" required>
         </div>
         <div class="form-group" id="item">
             <label for="regInputDoses">Doses</label>
-            <input type="number" class="form-control" id="exampleInputSabor" placeholder="Quantidade de doses">
+            <input type="number" [(ngModel)]="capsula.doses" name="doses" min="0" class="form-control" id="exampleInputDoses" placeholder="Quantidade de doses" required>
         </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button (click)="saveCapsula()" (click)="notCreatingOrEditing()" type="submit" class="btn btn-primary">Registrar</button>
     </form>
     <br><br>
     <br><br>
@@ -94,7 +103,7 @@
     <br><br>
 </div>
 
-<form id="formInsc" Aname="Inscricao">
+<form id="Inscrever" Aname="Inscricao">
     <h1 id="formH1">Inscreva-se!</h1>
     <h5>Quer receber informações sobre o seu sabor preferido? É fácil! Preencha o formulário abaixo.</h5>
     <div class="form-group" id="item">

@@ -67,13 +67,39 @@ body {
     background: #e6a756;
 }
 
-#divLista {
+#Lista {
+    text-align: center;
+    font-family: 'Courier New', sans-serif;
+}
+
+.table-dark {
+    background-color: #e6a756;
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    display: table;
+}
+
+#Inscrever {
+    text-align: center;
+    font-family: 'Courier New', sans-serif;
+}
+
+#item {
+    padding: 0.5%;
+}
+
+#Registrar {
     text-align: center;
     font-family: 'Courier New', sans-serif;
 }
 
 body {
     background: #f39c12;
+    enable-background: 100%;
+    table-layout: initial;
 }
 
 .center-on-page {
@@ -87,7 +113,6 @@ body {
 /* Reset Select */
 
 select {
-    -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
     outline: 0;
@@ -147,20 +172,6 @@ select::-ms-expand {
 
 .select::after {
     transition: .25s all ease;
-}
-
-#formInsc {
-    text-align: center;
-    font-family: 'Courier New', sans-serif;
-}
-
-#item {
-    padding: 0.5%;
-}
-
-#divReg {
-    text-align: center;
-    font-family: 'Courier New', sans-serif;
 }
 
 .slider-wraper {

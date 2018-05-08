@@ -14,9 +14,11 @@ public class CapsulaCafe {
     @Id
     @GeneratedValue(strategy =  GenerationType.AUTO)
     private Long id;
-    @NotBlank(message = "Não pode ser nulo")
+    @NotBlank(message = "Este campo não pode ser nulo")
     private String marca;
+    @NotBlank(message = "Este campo não pode ser nulo")
     private String sabor;
+    //@NotBlank(message = "Este campo não pode ser nulo")
     private Integer doses;
 
     public CapsulaCafe() {

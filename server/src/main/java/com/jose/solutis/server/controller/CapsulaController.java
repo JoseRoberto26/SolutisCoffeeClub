@@ -10,34 +10,36 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("")
+@CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE, RequestMethod.OPTIONS})
+@RequestMapping(value = "/capsulas")
 public class CapsulaController {
 
     @Autowired
     private CapsulaRepository repository;
 
-    @GetMapping("/capsulas")
+    @GetMapping("")
     public List<CapsulaCafe> allCapsula(){
         return repository.findAll();
     }
 
-    @GetMapping("/capsulas/{id}")
+    @GetMapping("/{id}")
     public Optional<CapsulaCafe> getCapsulaById(@PathVariable long id){
         return repository.findById(id);
     }
 
-    @DeleteMapping("/capsulas/{id}")
+    @DeleteMapping("/{id}")
     public void deleteCapsula(@PathVariable long id){
         repository.deleteById(id);
     }
 
-    @PostMapping("/capsulas")
+    @PostMapping("")
     public ResponseEntity<Object> createCapsula(@RequestBody CapsulaCafe capsulaCafe){
         boolean existeCapsula = capsulaCafe.getId() != null;
         CapsulaCafe novaCapsula = (CapsulaCafe) repository.save(capsulaCafe);
