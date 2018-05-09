@@ -1,6 +1,6 @@
 export class CapsulaCafe{
     id: number;
-    marca: string;
-    sabor: string;
+    marca: String;
+    sabor: String;
     doses: number;
 }

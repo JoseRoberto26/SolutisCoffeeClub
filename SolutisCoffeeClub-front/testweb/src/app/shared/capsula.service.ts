@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable()
 export class CapsulaService {
 
-  private capsulaUrl: string = 'http://localhost:8080/capsulas/';
+  private capsulaUrl: string = 'http://localhost:8080/capsulas';
   private headers = new Headers({'Content-Type' : 'application.json'});
 
   constructor( private http: HttpClient) {}

@@ -72,14 +72,12 @@ body {
     font-family: 'Courier New', sans-serif;
 }
 
-.table-dark {
-    background-color: #e6a756;
-    color: white;
-}
-
 table {
     border-collapse: collapse;
     display: table;
+    column-width: 50%;
+    background-color: #e6a756;
+    color: white;
 }
 
 #Inscrever {

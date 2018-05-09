@@ -45,55 +45,47 @@
 </div>
 
 <div id="Lista">
-    <div class="container" id="myTable">
-        <div class="row">
-            <table class="table table-hover table-dark" align="center">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Marca</th>
-                        <th scope="col">Sabor</th>
-                        <th scope="col">Doses</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let capsula of capsulas; let i = index">
-                        <td>{{i}}</td>
-                        <td>{{capsula.marca}}</td>
-                        <td>{{capsula.sabor}}</td>
-                        <td>{{capsula.doses}}</td>
-                        <td class="field-edit table-cart__td">
-                            <a href="#" class="c-btn--edit c-btn">Editar</a>
-                        </td>
-                        <td class="field-remove table-cart__td">
-                            <a href="#" (click)="deleteCapsula([(capsula)])" class="c-btn--remove c-btn">Apagar</a>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <table class="table table-hover table-dark" align="center">
+        <thead>
+            <tr>
+                <th scope="col">Marca</th>
+                <th scope="col">Sabor</th>
+                <th scope="col">Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let capsula of capsulas; let i = index">
+                <td>{{capsula.marca}}</td>
+                <td>{{capsula.sabor}}</td>
+                <td>{{capsula.doses}}</td>
+                <td class="field-edit table-cart__td">
+                    <a href="localhost:4200/#Registrar" (click)="showEditForm(capsula)" class="c-btn--edit c-btn">Editar</a>
+                </td>
+                <td class="field-remove table-cart__td">
+                    <a href="localhost:4200/#Lista" (click)="deleteCapsula(capsula)" class="c-btn--remove c-btn">Apagar</a>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-
+<button (click)="getCapsulas()">GetAll</button>
 
 <div id="Registrar">
     <h1>Registrar café</h1>
-    <button (click)="createOrEdit()" type="button" class="btn btn-primary">Nova capsula</button>
+    <button (click)="showCreationForm()" type="button" class="btn btn-primary">Nova capsula</button>
     <form [hidden]="!showCreation" #regForm="ngForm" id="formReg" ngmodel="capsula" name="formRegis">
-        <div class="form-group" id="item">
+        <div class="form-group" id="item1">
             <label for="regInputMarca">Marca do Café</label>
-            <input type="text" [(ngModel)]="capsula.marca" name="marca" class="form-control" id="inputRegMarca" placeholder="Digite a marca do café" required>
+            <input id="item0" type="text" [(ngModel)]="capsula.marca" name="marca" class="form-control" id="inputRegMarca" placeholder="Digite a marca do café" required>
         </div>
-        <div class="form-group" id="item">
+        <div class="form-group" id="item2">
             <label for="regInputSabor">Sabor</label>
             <input type="text" [(ngModel)]="capsula.sabor" name="sabor" class="form-control" id="inputRegSabor" placeholder="Digite o sabor do café" required>
         </div>
-        <div class="form-group" id="item">
+        <div class="form-group" id="item3">
             <label for="regInputDoses">Doses</label>
             <input type="number" [(ngModel)]="capsula.doses" name="doses" min="0" class="form-control" id="exampleInputDoses" placeholder="Quantidade de doses" required>
         </div>
-        <button (click)="saveCapsula()" (click)="notCreatingOrEditing()" type="submit" class="btn btn-primary">Registrar</button>
+        <button (click)="saveCapsula()" (click)="showCreationForm()" type="submit" class="btn btn-primary">Registrar</button>
     </form>
     <br><br>
     <br><br>

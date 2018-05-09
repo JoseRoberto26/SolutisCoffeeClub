@@ -7,7 +7,7 @@ import { Form, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html', 
-  styleUrls: ['./app.component.css', '../teste.css']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
 
@@ -15,26 +15,27 @@ export class AppComponent implements OnInit{
 
   }
 
-  capsulas: CapsulaCafe[]; 
+  capsulas: CapsulaCafe[] = []; 
   title = 'capsulas';
   capsula: CapsulaCafe;
   showCreation: boolean = false;
-  creationForm: NgForm;
 
   
   ngOnInit(){
     this.getCapsulas();
     this.capsula = new CapsulaCafe();
+  }
+
+  showCreationForm( ){
+    this.showCreation = !this.showCreation;
+  }
+
+  showEditForm(capsula: CapsulaCafe){
+    if(this.showCreation == false){
+      this.showCreation = true;
+    }
+  }
   
-  }
-  createOrEdit(){
-    this.showCreation = true;
-  }
-  notCreatingOrEditing(){
-    this.showCreation = false;
-    //this.creationForm.resetForm();
-  }
-    
   getCapsulas(){
     this.capsulaService.getAllCapsula().subscribe(data => {
       this.capsulas = data;
@@ -42,26 +43,22 @@ export class AppComponent implements OnInit{
   }
 
   deleteCapsula(capsula:CapsulaCafe){
-    console.log(this.capsula.sabor);
-    this.capsulaService.deleteCapsula(this.capsula.id).subscribe(data => {
+    this.capsulaService.deleteCapsula(capsula.id).subscribe(data => {
+      this.capsulas.splice(this.capsulas.indexOf(capsula), 1);
       console.log("deleted");
     });
-    this.getCapsulas();
    /* alert("Capsula deletada com sucesso");*/
   }
 
   saveCapsula(){
+    console.log(this.capsula.id);
     console.log(this.capsula.sabor);
     console.log(this.capsula.marca);
-    console.log(this.capsula.id);
     console.log(this.capsula.doses);
 
    this.capsulaService.saveCapsula(this.capsula).subscribe(result => {
-     this.capsula;
-   }) ; 
-  }
-
-  cancelar(){
-    this.capsula = new CapsulaCafe();
+    this.capsulas.push(this.capsula);
+  }) ; 
+  this.capsula = new CapsulaCafe();
   }
 }
