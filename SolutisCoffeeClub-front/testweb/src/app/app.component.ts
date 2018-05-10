@@ -31,6 +31,7 @@ export class AppComponent implements OnInit{
   }
 
   showEditForm(capsula: CapsulaCafe){
+    this.capsula = capsula;
     if(this.showCreation == false){
       this.showCreation = true;
     }
@@ -51,14 +52,19 @@ export class AppComponent implements OnInit{
   }
 
   saveCapsula(){
-    console.log(this.capsula.id);
-    console.log(this.capsula.sabor);
-    console.log(this.capsula.marca);
-    console.log(this.capsula.doses);
-
+    //console.log(this.capsula.id);
+    //console.log(this.capsula.sabor);
+    //console.log(this.capsula.marca);
+    //console.log(this.capsula.doses);
    this.capsulaService.saveCapsula(this.capsula).subscribe(result => {
-    this.capsulas.push(this.capsula);
+    this.capsulas.forEach(capsula => {
+      if(capsula.id == this.capsula.id){
+        this.capsulas.splice(this.capsulas.indexOf(capsula), 1);
+      }
+    });
+    this.capsulas.push(<CapsulaCafe>result);
+    this.capsula = new CapsulaCafe();
   }) ; 
-  this.capsula = new CapsulaCafe();
+      console.log(this.capsulas);
   }
 }

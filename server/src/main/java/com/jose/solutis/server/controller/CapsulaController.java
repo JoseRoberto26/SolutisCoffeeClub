@@ -39,7 +39,7 @@ public class CapsulaController {
         repository.deleteById(id);
     }
 
-    @PostMapping("")
+    @PostMapping("  ")
     public ResponseEntity<Object> createCapsula(@RequestBody CapsulaCafe capsulaCafe){
         boolean existeCapsula = capsulaCafe.getId() != null;
         CapsulaCafe novaCapsula = (CapsulaCafe) repository.save(capsulaCafe);

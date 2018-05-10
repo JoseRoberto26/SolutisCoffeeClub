@@ -26,12 +26,7 @@ export class CapsulaService {
   }
   saveCapsula(capsula: CapsulaCafe){
     let result: Observable<Object>;
-    if(capsula['id']){
-      result = this.http.put(this.capsulaUrl + '/' + capsula.id, capsula);
-    }
-    else{
-      result = this.http.post(this.capsulaUrl, capsula);
-    }
+    result = this.http.post(this.capsulaUrl, capsula);
     return result;
   }
   deleteCapsula(id: number){
