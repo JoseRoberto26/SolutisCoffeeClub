@@ -10,14 +10,16 @@ public class Capsula {
     @Expose
     private Long id;
 
-    @SerializedName("id")
+    @SerializedName("marca")
     @Expose
     private String marca;
 
-    @SerializedName("id")
+    @SerializedName("sabor")
     @Expose
     private String sabor;
 
+    @SerializedName("doses")
+    @Expose
     private Integer doses;
 
     public Capsula() {

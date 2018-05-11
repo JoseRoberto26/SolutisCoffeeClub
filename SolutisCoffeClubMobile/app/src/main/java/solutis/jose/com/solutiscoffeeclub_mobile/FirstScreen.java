@@ -1,5 +1,6 @@
 package solutis.jose.com.solutiscoffeeclub_mobile;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,6 +34,12 @@ public class FirstScreen extends AppCompatActivity {
         super.onStart();
         System.out.println("----main activity---onStart---");
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+
     }
 
 }

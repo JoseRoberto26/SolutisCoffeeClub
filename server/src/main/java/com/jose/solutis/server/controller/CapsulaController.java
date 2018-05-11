@@ -24,14 +24,9 @@ public class CapsulaController {
     @Autowired
     private CapsulaRepository repository;
 
-    @GetMapping("")
+    @GetMapping("/pegar")
     public List<CapsulaCafe> allCapsula(){
         return repository.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public Optional<CapsulaCafe> getCapsulaById(@PathVariable long id){
-        return repository.findById(id);
     }
 
     @DeleteMapping("/{id}")
@@ -39,7 +34,7 @@ public class CapsulaController {
         repository.deleteById(id);
     }
 
-    @PostMapping("  ")
+    @PostMapping("")
     public ResponseEntity<Object> createCapsula(@RequestBody CapsulaCafe capsulaCafe){
         boolean existeCapsula = capsulaCafe.getId() != null;
         CapsulaCafe novaCapsula = (CapsulaCafe) repository.save(capsulaCafe);

@@ -12,7 +12,7 @@ import solutis.jose.com.solutiscoffeeclub_mobile.Capsula;
 
 public interface CapsulaController {
 
-    @GET("capsulas")
+    @GET("capsulas/pegar")
     Call<ArrayList<Capsula>> getCapsulas();
 
     @DELETE("capsulas/{id}")

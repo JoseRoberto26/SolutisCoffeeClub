@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageCafe"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/coffee"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="right"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textMarca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="80dp"
+            android:layout_marginTop="44dp"
+            android:text="Marca do café" />
+
+        <TextView
+            android:id="@+id/textSabor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textMarca"
+            android:layout_below="@+id/textMarca"
+            android:text="Sabor do café" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/editCafe"
+            android:layout_width="27dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/textMarca"
+            android:layout_marginEnd="26dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/edit" />
+
+        <TextView
+            android:id="@+id/textDoses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textMarca"
+            android:layout_below="@+id/textSabor"
+            android:text="Quantidade de doses" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/deleteCafe"
+            android:layout_width="28dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textDoses"
+            android:layout_alignStart="@+id/editCafe"
+            android:clickable="true"
+            app:srcCompat="@drawable/delete" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
