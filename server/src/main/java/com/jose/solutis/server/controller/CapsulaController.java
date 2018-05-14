@@ -18,23 +18,23 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", methods = {RequestMethod.POST, RequestMethod.GET, RequestMethod.DELETE, RequestMethod.OPTIONS})
-@RequestMapping(value = "/capsulas")
+
 public class CapsulaController {
 
     @Autowired
     private CapsulaRepository repository;
 
-    @GetMapping("/pegar")
+    @GetMapping("/capsulas")
     public List<CapsulaCafe> allCapsula(){
         return repository.findAll();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("capsulas/{id}")
     public void deleteCapsula(@PathVariable long id){
         repository.deleteById(id);
     }
 
-    @PostMapping("")
+    @PostMapping("/capsulas")
     public ResponseEntity<Object> createCapsula(@RequestBody CapsulaCafe capsulaCafe){
         boolean existeCapsula = capsulaCafe.getId() != null;
         CapsulaCafe novaCapsula = (CapsulaCafe) repository.save(capsulaCafe);

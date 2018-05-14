@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ import solutis.jose.com.solutiscoffeeclub_mobile.Retrofit.RetrofitConf;
 public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton addButton;
+    FloatingActionButton deleteButton;
+    FloatingActionButton editButton;
     private ArrayList<Capsula> capsulas;
     private ListView listaCafe;
 
@@ -47,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(ob);
             }
         });
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         final Handler mainHandler = new Handler(getBaseContext().getMainLooper());
         final Runnable run = new Runnable() {
@@ -76,9 +85,6 @@ public class MainActivity extends AppCompatActivity {
         }).start();
 
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

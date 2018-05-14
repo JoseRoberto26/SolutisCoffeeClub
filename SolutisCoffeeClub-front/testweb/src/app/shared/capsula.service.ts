@@ -22,7 +22,7 @@ export class CapsulaService {
      return this.http.get(this.capsulaUrl);
    }
    getCapsulaById(id:number) : Observable<any>{
-    return this.http.get(this.capsulaUrl + '/' + id);   
+    return this.http.get(this.capsulaUrl + id);   
   }
   saveCapsula(capsula: CapsulaCafe){
     let result: Observable<Object>;

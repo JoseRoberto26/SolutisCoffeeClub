@@ -21,14 +21,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/inputMarca"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
+        app:layout_constraintBottom_toTopOf="@+id/inputSabor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +36,11 @@
         app:layout_constraintVertical_bias="0.689">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/marcaInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite a marca do Café" />
+
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -58,7 +60,7 @@
         app:layout_constraintVertical_bias="0.128" />
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/inputSabor"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -73,6 +75,7 @@
         app:layout_constraintVertical_bias="0.433">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/saborInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite o sabor do café" />
@@ -105,10 +108,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/inputSabor"
         app:layout_constraintVertical_bias="0.207">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/doseInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite a quantidade de doses" />

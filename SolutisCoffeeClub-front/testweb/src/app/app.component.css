@@ -75,14 +75,17 @@ body {
 table {
     border-collapse: collapse;
     display: table;
-    column-width: 50%;
+    column-width: 100%;
+    max-width: 50%;
     background-color: #e6a756;
-    color: white;
+    color: #2e160d;
 }
 
 #Inscrever {
-    text-align: center;
     font-family: 'Courier New', sans-serif;
+    width: 50%;
+    height: 50%;
+    margin: auto;
 }
 
 #item {
@@ -90,8 +93,9 @@ table {
 }
 
 #Registrar {
-    text-align: center;
+    margin: auto;
     font-family: 'Courier New', sans-serif;
+    width: 50%;
 }
 
 body {
@@ -345,4 +349,10 @@ select::-ms-expand {
 
 .slick-dots li button:hover {
     background-color: #2e160d;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #e48d46;
+    border-color: #e48d46;
 }

@@ -50,7 +50,7 @@
             android:layout_alignTop="@+id/textMarca"
             android:layout_marginEnd="26dp"
             android:clickable="true"
-            app:srcCompat="@drawable/edit" />
+            android:background="@drawable/edit"/>
 
         <TextView
             android:id="@+id/textDoses"
@@ -64,8 +64,8 @@
             android:id="@+id/deleteCafe"
             android:layout_width="28dp"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textDoses"
             android:layout_alignStart="@+id/editCafe"
+            android:layout_below="@+id/textSabor"
             android:clickable="true"
             app:srcCompat="@drawable/delete" />
 

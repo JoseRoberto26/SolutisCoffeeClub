@@ -4,7 +4,9 @@ package solutis.jose.com.solutiscoffeeclub_mobile;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Capsula {
+import java.io.Serializable;
+
+public class Capsula implements Serializable{
 
     @SerializedName("id")
     @Expose
@@ -23,6 +25,7 @@ public class Capsula {
     private Integer doses;
 
     public Capsula() {
+
     }
 
 

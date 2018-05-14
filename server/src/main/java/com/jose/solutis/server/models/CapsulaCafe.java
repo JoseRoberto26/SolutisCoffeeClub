@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 public class CapsulaCafe {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.AUTO)
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
     @NotBlank(message = "Este campo não pode ser nulo")
     private String marca;
